@@ -6,7 +6,7 @@ const nodeStatic = require('node-static');
 let fileServer = new(nodeStatic.Server)();
 let app = http.createServer((req,res)=>{
     fileServer.serve(req,res);
-}).listen(views/index.html||8080);
+}).listen(process.env.PORT||8080);
 
 let io = socketIO.listen(app);
 io.sockets.on('connection',socket=>{
